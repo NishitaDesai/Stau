@@ -1,0 +1,58 @@
+! main98.cmnd
+! This file contains commands to be read in for a Pythia8 run. 
+! Lines not beginning with a letter or digit are comments.
+
+! 1) Settings used in the main program.
+Main:numberOfEvents = 10000        ! number of events to generate
+Main:timesAllowErrors = 3          ! how many aborts before run stops
+
+! 2) Settings related to output in init(), next() and stat().
+Init:showChangedSettings = on      ! list changed settings
+Init:showChangedParticleData = off ! list changed particle data
+Next:numberCount = 500             ! print message every n events
+Next:numberShowInfo = 0            ! print event information n times
+Next:numberShowProcess = 1         ! print process record n times
+Next:numberShowEvent = 0           ! print event record n times
+
+! 3) Beam parameter settings. Values below agree with default ones.
+Beams:idA = 2212                   ! first beam, p = 2212, pbar = -2212
+Beams:idB = 2212                   ! second beam, p = 2212, pbar = -2212
+Beams:eCM = 8000.                  ! CM energy of collision
+
+! 4) Read SLHA spectrum
+#SLHA:file = staudecay_test-200.spc
+#SLHA:file = staudecay_780_1.0.spc
+#SLHA:file = 500_1.75.spc
+#SLHA:file = amsb-atlas.spc
+
+
+! 5a) Process selection 
+SUSY:all = on
+
+#SUSY:qqbar2chi0chi0  = on
+#SUSY:qqbar2chi+-chi0 = on
+#SUSY:qqbar2chi+chi-  = on
+#SUSY:qqbar2sleptonantislepton = on
+
+! Optionally select only specific sparticle codes in the final state
+#SUSY:idA        = 1000024           ! 0: all
+#SUSY:idA        = 1000015           ! 0: all
+#SUSY:idB        = 1000015           ! 0: all
+
+! 5b) MSSM Higgses
+#Higgs:useBSM = true
+#HiggsBSM:all = true
+
+! 6) Settings for the event generation process in the Pythia8 library.
+PartonLevel:MPI = off              ! no multiparton interactions
+!PartonLevel:ISR = off              ! no initial-state radiation 
+!PartonLevel:FSR = off              ! no final-state radiation
+!HadronLevel:Hadronize = off        ! no hadronization
+
+! 7) Settings for validation with Pythia6
+#PDF:pSet = 8
+#SigmaProcess:factorscale2 = 4
+#SigmaProcess:renormScale2 = 4 
+#SigmaProcess:alphaSvalue = 0.1265 
+#SigmaProcess:alphaSorder = 1
+#SUSY:sin2thetaWMode = 3             ! Force on-shell definition

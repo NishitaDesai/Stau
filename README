@@ -1,0 +1,22 @@
+atlasmet.cc : ATLAS analysis ATLAS-CONF-2013-047
+stau.cc: CMS meta-stable charged track analysis and ATLAS disappearing track analysis
+CaseA : benchmarks and data for tanB=10, A0=0  
+CaseB : benchmarks and data for tanB=10, A0=-2.5m0 (in SoftSUSY notation)  
+CaseC : benchmarks and data for tanB=40, A0=0  
+CaseD : benchmarks and data for tanB=40, A0=-2.5m0 (in SoftSUSY notation)  
+
+stau-scan-met.bash: scan for atlasmet analysis
+stau-scan: scan for track analysis
+
+met-meff* : scatter plot data 
+efficiencies.dat: stable and disappering track fractions for extreme cases
+
+stau_decay_calc: files for calculating stau decay table
+  test-point.x: (to be run with SoftSUSY and staudecay_slha.F) to test the mass difference for given m0,m12
+  stauloop.bash: bash loop to calculate five stau mass difference benchmarks (0.5, 1.1, 1.4, 1.67, 1.75
+
+Analysis.nb: comparing beta, eta, met, meff distributions
+LimitPlots.nb: Combination of all limits
+Limits-14.nb: Limit forecasts for 14 TeV
+
+
